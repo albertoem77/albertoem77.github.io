@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-en="Alberto Esteban Medina | Mathematics and biomedical data science">Alberto Esteban Medina | Matemáticas y ciencia de datos biomédicos</title>
+    <meta name="description" data-en-content="Alberto Esteban Medina: mathematics, biomedical data analysis, research, publications and education." content="Perfil de Alberto Esteban Medina: matemáticas, análisis de datos biomédicos, investigación, publicaciones y formación.">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        slate: { 850: '#1e293b', 900: '#0f172a', 950: '#020617' }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'Fira Code', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+        
+        .tab-content {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.2s ease-in-out;
+        }
+        .tab-content.active {
+            display: block;
+            opacity: 1;
+        }
+        
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
+        .dark ::-webkit-scrollbar-thumb { background: #334155; }
+    </style>
+</head>
+
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-200 font-sans antialiased min-h-screen flex flex-col transition-colors duration-200">
+
+    <!-- Header Module Slot -->
+    <div id="header-slot"></div>
+
+    <!-- Main Dynamic Content Container -->
+    <main class="flex-grow max-w-5xl w-full mx-auto px-4 sm:px-6 py-8 md:py-12">
+        <div id="about-slot"></div>
+        <div id="publications-slot"></div>
+        <div id="activities-slot"></div>
+        <div id="projects-slot"></div>
+        <div id="teaching-slot"></div>
+        <div id="notes-slot"></div>
+    </main>
+
+    <!-- Global BibTeX Modal -->
+    <div id="bibtex-modal" role="dialog" aria-modal="true" aria-labelledby="bibtex-title" tabindex="-1" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
+        <div class="bg-white dark:bg-slate-900 rounded-2xl max-w-xl w-full max-h-[90vh] overflow-y-auto p-6 space-y-4 border border-slate-200 dark:border-slate-800 shadow-xl">
+            <div class="flex items-center justify-between">
+                <h3 id="bibtex-title" class="font-bold text-slate-900 dark:text-white" data-en="BibTeX citation">Cita BibTeX</h3>
+                <button onclick="closeBibtexModal()" aria-label="Cerrar cita BibTeX" data-en-aria-label="Close BibTeX citation" class="text-slate-400 hover:text-slate-600 dark:hover:text-white">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            <pre id="bibtex-content" class="bg-slate-100 dark:bg-slate-950 p-4 rounded-xl text-xs font-mono text-slate-800 dark:text-slate-200 overflow-x-auto select-all max-h-80 overflow-y-auto"></pre>
+            <div class="flex justify-end gap-2">
+                <button id="copy-bibtex-btn" onclick="copyBibtex(this)" class="px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg text-xs font-semibold transition-colors flex items-center gap-1.5">
+                    <i data-lucide="copy" class="w-4 h-4"></i>
+                    <span data-en="Copy citation">Copiar cita</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loaders & Logic -->
+    <script src="js/i18n.js"></script>
+    <script src="js/loader.js"></script>
+    <script src="js/bibliography.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

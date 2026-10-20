@@ -1,0 +1,41 @@
+<header class="sticky top-0 z-40 w-full backdrop-blur-md bg-white/80 dark:bg-slate-950/80 border-b border-slate-200 dark:border-slate-800">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 flex items-center justify-between gap-2 sm:gap-3 h-16">
+        <button onclick="switchTab('about'); resetAllFilters();" aria-label="Ir al perfil de Alberto Esteban Medina" data-en-aria-label="Go to Alberto Esteban Medina&#x27;s profile" class="font-bold text-xs sm:text-base tracking-tight text-slate-900 dark:text-white flex items-center gap-2 text-left min-w-0">
+            <span aria-hidden="true" class="bg-slate-900 text-white dark:bg-slate-100 dark:text-slate-900 w-8 h-8 shrink-0 rounded-lg flex items-center justify-center font-mono text-sm font-semibold">AE</span>
+            <span class="leading-tight">Alberto Esteban Medina</span>
+        </button>
+
+        <nav aria-label="Navegación principal" data-en-aria-label="Main navigation" class="hidden lg:flex items-center text-xs font-medium">
+            <button onclick="switchTab('about'); resetAllFilters();" id="nav-about" class="nav-btn px-2 py-2 rounded-md text-indigo-800 dark:text-indigo-400 font-semibold transition-colors" data-en="Profile">Perfil</button>
+            <button onclick="switchTab('publications'); resetAllFilters();" id="nav-publications" class="nav-btn px-2 py-2 rounded-md text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-colors" data-en="Publications">Publicaciones</button>
+            <button onclick="switchTab('activities'); resetAllFilters();" id="nav-activities" class="nav-btn px-2 py-2 rounded-md text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-colors" data-en="Activity">Actividad</button>
+            <button onclick="switchTab('projects'); resetAllFilters();" id="nav-projects" class="nav-btn px-2 py-2 rounded-md text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-colors" data-en="Research">Investigación</button>
+            <button onclick="switchTab('teaching'); resetAllFilters();" id="nav-teaching" class="nav-btn px-2 py-2 rounded-md text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-colors" data-en="Education">Formación</button>
+            <button onclick="switchTab('notes'); resetAllFilters();" id="nav-notes" class="nav-btn px-2 py-2 rounded-md text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-colors" data-en="Links">Enlaces</button>
+        </nav>
+
+        <div class="flex items-center gap-1 shrink-0">
+            <div role="group" aria-label="Elegir idioma" data-en-aria-label="Choose language" class="flex items-center rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 p-0.5 text-xs font-semibold text-slate-600 dark:text-slate-300">
+                <button type="button" onclick="setLanguage('es')" data-language="es" lang="es" aria-label="Español" aria-pressed="true" class="rounded-md px-2 py-1.5 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-indigo-500">ES</button>
+                <span aria-hidden="true" class="text-slate-400">/</span>
+                <button type="button" onclick="setLanguage('en')" data-language="en" lang="en" aria-label="English" aria-pressed="false" class="rounded-md px-2 py-1.5 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-indigo-500">EN</button>
+            </div>
+            <button id="theme-toggle" onclick="toggleDarkMode()" aria-label="Cambiar tema de color" class="p-2 rounded-lg text-slate-500 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800 transition-colors">
+                <i data-lucide="moon" id="theme-icon-dark" class="w-5 h-5 hidden"></i>
+                <i data-lucide="sun" id="theme-icon-light" class="w-5 h-5"></i>
+            </button>
+            <button id="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="mobile-menu" class="lg:hidden p-2 rounded-lg text-slate-500 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+    </div>
+
+    <nav id="mobile-menu" aria-label="Navegación móvil" data-en-aria-label="Mobile navigation" class="hidden lg:hidden border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-4 pt-2 pb-4 space-y-1">
+        <button onclick="switchTab('about'); resetAllFilters(); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-md text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 font-medium" data-en="Profile">Perfil</button>
+        <button onclick="switchTab('publications'); resetAllFilters(); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-md text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 font-medium" data-en="Publications">Publicaciones</button>
+        <button onclick="switchTab('activities'); resetAllFilters(); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-md text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 font-medium" data-en="Activity">Actividad</button>
+        <button onclick="switchTab('projects'); resetAllFilters(); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-md text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 font-medium" data-en="Research">Investigación</button>
+        <button onclick="switchTab('teaching'); resetAllFilters(); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-md text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 font-medium" data-en="Education">Formación</button>
+        <button onclick="switchTab('notes'); resetAllFilters(); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-md text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 font-medium" data-en="Links">Enlaces</button>
+    </nav>
+</header>
